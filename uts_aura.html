@@ -1,0 +1,224 @@
+<!--
+  Nama : Aura Syaakirah
+  NIM : 2210512019
+  Kelas : A - S1 Sistem Informasi
+  Dosen : Theresiawati, S.KOM,M.TI
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ujian Tengah Semester</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      
+      .atas-halaman {
+        color: white;
+        text-align: center;
+        background-color: rgb(17, 17, 69);
+        padding: 1px;
+        width: 100%;
+      }
+      
+      .navigasi {
+        text-align: center;
+        color: rgb(0, 123, 255);
+        display: flex;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .navigasi img {
+        width: 50px;
+        height: auto;
+        margin-left: 20%;
+      }
+  
+      .navigasiAtasHlm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      
+      .bag-atas {
+        font-size: 50px;
+      }
+      
+      #buttonIsiPeminatan {
+        background-color: #008aff;
+        border: 1px solid #008aff;
+        font-size: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        color: white;
+      }
+      
+      #buttonDaftarDiri {
+        background-color: white;
+        border: 2px solid grey;
+        font-size: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        color: black;
+      }
+      
+      .left-content {
+        width: 50%;
+        margin-left: 5%;
+      }
+  
+      .left-content h1 {
+        font-size: 65px;
+      }
+      
+      .left-content p {
+        font-size: 20px;
+        width: 80%;
+        color: #8390a3;
+      }
+      
+      .bag-atas {
+        display: flex;
+        flex-direction: row;
+      }
+      
+      .right-content {
+        width: 50%;
+      }
+      
+      .right-content img {
+        width: 80%;
+        height: 600px;
+        object-fit: cover;
+        object-position: center;
+        margin-left: 10%;
+      }
+  
+      .popup {
+        position: fixed;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 40px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        border-radius: 20px;
+      }
+      
+      .popup-content p {
+        text-align: left;
+      }
+      
+      #closeButton {
+        position: absolute;
+        bottom: 10px;
+        right: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="navigasiAtasHlm">
+        <div class="atas-halaman">
+          <h4>
+            <a href="https://new-fik.upnvj.ac.id/" style="color: white; text-decoration: none;">Ini adalah Ujian Tengah Semester Pemrograman Web. Klik ini untuk ke
+              laman Fakultas Ilmu Komputer UPN Veteran Jakarta -></a>
+          </h4>
+        </div>
+        <div class="navigasi">
+          <img
+            src="upn_logo.png"
+            alt="Logo UPNVJ"
+            height="40px"
+          />
+          <h2>
+           Sistem Peminatan Fakultas Ilmu Komputer Universitas Pembangunan Nasional Veteran
+            Jakarta.
+          </h2>
+        </div>
+      </div>
+      <div class="bag-atas">
+        <div class="left-content">
+          <h1>
+            <span style="color: midnightblue"
+              >Selamat Datang pada Sistem Peminatan Keahlian</span
+            >
+            <span style="color: goldenrod">Fakultas Ilmu Komputer</span>
+            <span style="color: dodgerblue">UPN Veteran Jakarta</span>
+          </h1>
+          <p>
+            Sistem ini untuk sebagai tolak ukur pemahaman diri saya terhadap
+            materi pemrograman web sistem informasi.
+          </p>
+          <input
+            type="submit"
+            value="Mulai Mengisi Peminatan >"
+            id="buttonIsiPeminatan"
+            color="blue;"
+          />
+          <input type="submit" value="Daftar Diri" id="buttonDaftarDiri" />
+        </div>
+
+        <div class="right-content">
+          <div class="centerImage">
+            <img
+              src="gambar_fik.jpeg"
+              alt="Gambar FIK"
+              height="400px"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("buttonDaftarDiri").addEventListener("click", function() {
+            var popUpContent = `
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <h2>Daftar Diri UPN Veteran Jakarta <img src="upn_logo.png" alt="Logo UPNVJ" height="30px"></h2>
+                        <hr>
+                        <p>Mahasiswa Sistem Informasi Ilmu Komputer</p>
+                        <p>Nama&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : Aura Syaakirah</p>
+                        <p>Nim&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : 2210512019</p>
+                        <p>Program Studi&nbsp&nbsp&nbsp : Sistem Informasi</p>
+                        <hr>
+                        <p>" Semoga Sistem ini berguna " - Aura Syaakirah</p>
+                        <button id="closeButton">Close</button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML("beforeend", popUpContent);
+
+            document.getElementById("closeButton").addEventListener("click", closePopup);
+        });
+    });
+
+    function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.parentNode.removeChild(popup);
+    }
+    </script>
+    <script> 
+      document.getElementById("buttonIsiPeminatan").addEventListener("click", function() { 
+        window.open("form_peminatan.html", "_self"); 
+      });       
+    </script>
+  </body>
+</html>

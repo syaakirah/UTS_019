@@ -1,0 +1,80 @@
+<!--
+  Nama : Aura Syaakirah
+  NIM : 2210512019
+  Kelas : A - S1 Sistem Informasi
+  Dosen : Theresiawati, S.KOM,M.TI
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hasil Kontrak Mata Kuliah</title>
+	</head>
+	<body>
+	<fieldset>
+	<img src="upn_logo.png" width="40px" height="40px"/>
+	<legend>Hasil Pengajuan Peminatan Mahasiswa</legend>
+	<p id="hasil"></p>
+	
+	Mata Kuliah yang di Pilih:
+	<ul id="list_matkul"></ul>
+
+	</fieldset>
+
+	<script>
+		let urlParams = new URLSearchParams(window.location.search);
+		let nim = urlParams.get("nim");
+		let nama = urlParams.get("nama");
+		let semester = urlParams.get("semester");
+		let prodi = urlParams.get("prodi");
+		let matkul = urlParams.get("matkul").split(",");
+		const list_matkul = document.getElementById("list_matkul");
+  
+		class Angkatan {
+		  constructor(semester) {
+			this.semester = semester;
+		  }
+  
+		  getYear() {
+			let th_masuk =
+			  new Date().getFullYear() - Math.ceil(this.semester / 2);
+			return th_masuk;
+		  }
+		}
+  
+		class Mahasiswa extends Angkatan {
+		  constructor(nim, nama, semester, prodi) {
+			super(semester);
+			this.nim = nim;
+			this.nama = nama;
+			this.prodi = prodi;
+		  }
+  
+		  output() {
+			let element = document.getElementById("hasil");
+  
+			if (element !== null) {
+			  element.innerHTML =
+				"Nim : <b>" +
+				this.nim +
+				"</b>, <br/>Nama : <b>" +
+				this.nama +
+				"</b>, </br>Program Studi: <b>" +
+				this.prodi +
+				"</b>, <br/>Angkatan: <b>" +
+				this.getYear();
+			}
+		  }
+		}
+  
+		let mahasiswa = new Mahasiswa(nim, nama, semester, prodi);
+		mahasiswa.output();
+  
+		matkul.forEach((mataKuliah) => {
+		  let li = document.createElement("li");
+		  li.textContent = mataKuliah;
+		  list_matkul.appendChild(li);
+		});
+	  </script>
+  
+	</body>
+</html>
